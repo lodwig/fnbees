@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fnbees/models/login_model.dart';
+import 'package:fnbees/ui/home_view.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:fnbees/service_locator.dart';
 
@@ -19,74 +20,86 @@ class LoginView extends StatelessWidget {
             title: Text(model.title),
             centerTitle: true,
           ),
-          body: Container(
-            child: Column(
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.all(20),
-                  child: showForm(model),
-                ),
-                Container(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      FlatButton(
-                        child: Text('Login'),
-                        color: Colors.blue,
-                        onPressed: () {
-                          final _formState = _formKey.currentState;
-                          if (_formState.validate()) {
-                            _formState.save();
-                            model.doLogin().then((status) {
-                              if (status) {
-                                // Redirect To Home
-                              } else {
-                                _scaffoldKey.currentState.showSnackBar(
-                                  SnackBar(
-                                    backgroundColor: Colors.redAccent,
-                                    content: Text(
-                                      model.error,
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    duration: Duration(seconds: 3),
-                                  ),
-                                );
-                              }
-                            });
-                          }
-                        },
-                      ),
-                      FlatButton(
-                        color: Colors.green,
-                        child: Text('Sign Up'),
-                        onPressed: () {
-                          final _formState = _formKey.currentState;
-                          if (_formState.validate()) {
-                            _formState.save();
-                            model.doSignUp().then((status) {
-                              if (status) {
-                                // Redirect To Home
-                              } else {
-                                _scaffoldKey.currentState.showSnackBar(
-                                  SnackBar(
-                                    backgroundColor: Colors.redAccent,
-                                    content: Text(
-                                      model.error,
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    duration: Duration(seconds: 3),
-                                  ),
-                                );
-                              }
-                            });
-                          }
-                        },
-                      )
-                    ],
+          body: SingleChildScrollView(
+            child: Container(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    child: showForm(model),
                   ),
-                ),
-              ],
+                  Container(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        FlatButton(
+                          child: Text('Login'),
+                          color: Colors.blue,
+                          onPressed: () {
+                            final _formState = _formKey.currentState;
+                            if (_formState.validate()) {
+                              _formState.save();
+                              model.doLogin().then((status) {
+                                if (status) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => HomeView(
+                                                authResult: model.authResult,
+                                              )));
+                                } else {
+                                  _scaffoldKey.currentState.showSnackBar(
+                                    SnackBar(
+                                      backgroundColor: Colors.redAccent,
+                                      content: Text(
+                                        model.error,
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      duration: Duration(seconds: 3),
+                                    ),
+                                  );
+                                }
+                              });
+                            }
+                          },
+                        ),
+                        FlatButton(
+                          color: Colors.green,
+                          child: Text('Sign Up'),
+                          onPressed: () {
+                            final _formState = _formKey.currentState;
+                            if (_formState.validate()) {
+                              _formState.save();
+                              model.doSignUp().then((status) {
+                                if (status) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => HomeView(
+                                                authResult: model.authResult,
+                                              )));
+                                } else {
+                                  _scaffoldKey.currentState.showSnackBar(
+                                    SnackBar(
+                                      backgroundColor: Colors.redAccent,
+                                      content: Text(
+                                        model.error,
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      duration: Duration(seconds: 3),
+                                    ),
+                                  );
+                                }
+                              });
+                            }
+                          },
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

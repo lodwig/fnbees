@@ -1,3 +1,4 @@
+import 'package:fnbees/models/home_model.dart';
 import 'package:fnbees/models/login_model.dart';
 import 'package:fnbees/services/serviceworkers.dart';
 import 'package:get_it/get_it.dart';
@@ -9,4 +10,5 @@ void setupLocator() {
   locator.registerLazySingleton<ServiceWorkers>(() => ServiceWorkers());
   // Registering All Models
   locator.registerFactory<LoginModel>(() => LoginModel());
+  locator.registerFactory<HomeModel>(() => HomeModel());
 }
