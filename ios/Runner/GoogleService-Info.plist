@@ -5,9 +5,9 @@
 	<key>CLIENT_ID</key>
 	<string>456902125948-6vkch3hhgp506a8vk081fedef2nlou70.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.456902125948-6vkch3hhgp506a8vk081fedef2nlou70</string>
+	<string>xxxxxxxxxxxx</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDJERbhJlN_DhARi8dJwzVAHe5uln7r_0A</string>
+	<string>xxxxxx</string>
 	<key>GCM_SENDER_ID</key>
 	<string>456902125948</string>
 	<key>PLIST_VERSION</key>
@@ -15,9 +15,9 @@
 	<key>BUNDLE_ID</key>
 	<string>com.lodwig.fnbees</string>
 	<key>PROJECT_ID</key>
-	<string>lodwig-d399b</string>
+	<string>xxxx</string>
 	<key>STORAGE_BUCKET</key>
-	<string>lodwig-d399b.appspot.com</string>
+	<string>xxxx</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:456902125948:ios:f013c9e2ced3314a769cf9</string>
+	<string>xxxx</string>
 	<key>DATABASE_URL</key>
-	<string>https://lodwig-d399b.firebaseio.com</string>
+	<string>xxxx</string>
 </dict>
 </plist>
